@@ -10,6 +10,8 @@ Extension requires TYPO3 in version at least 9.5.
 Install extension using composer\
 ``composer require friendsoftypo3/headless_news``
 
+and then, include Typoscript template, and you are ready to go.
+
 ## Development
 Development for this extension is happening as part of the TYPO3 PWA initiative, see https://typo3.org/community/teams/typo3-development/initiatives/pwa/
 
