@@ -1,0 +1,13 @@
+<f:spaceless>
+    <f:if condition="{contentElementIdList}">
+        <f:then>
+            <f:variable name="contentElements" value="{contentElementIdList -> headless:iterator.explode()}"/>
+            [<f:for each="{contentElements}" as="contentElement" iteration="iterator">
+                <f:format.raw>
+                    <f:format.json value="{contentElement -> f:cObject(typoscriptObjectPath: 'lib.tx_news.contentElementRendering') -> headless:format.json.decode()}"/>
+                    {f:if(condition: iterator.isLast, else: ',')}
+                </f:format.raw>
+            </f:for>]
+        </f:then>
+    </f:if>
+</f:spaceless>

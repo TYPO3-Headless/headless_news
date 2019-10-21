@@ -1,0 +1,17 @@
+<f:spaceless>
+  <f:format.raw>
+    <f:format.json
+      value="{
+        id: audio.uid,
+        type: audio.type,
+        name: audio.name,
+        title: audio.title,
+        description: audio.description,
+        mimetype: audio.mimetype,
+        source: '{f:uri.typolink(parameter: audio.publicUrl, absolute: absolute)}',
+        autoplay: '{f:if(condition: audio.properties.autoplay, then: \'{v:format.json.decode(json: \\\'true\\\')}\', else: \'{v:format.json.decode(json: \\\'false\\\')}\')}',
+        creationTime: '{f:if(condition: audio.creationTime, then: \'{audio.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
+        modificationTime: '{f:if(condition: audio.modificationTime, then: \'{audio.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
+      }"/>
+  </f:format.raw>
+</f:spaceless>

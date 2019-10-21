@@ -1,0 +1,96 @@
+<f:if condition="{image}">
+  <f:then>
+    <f:variable
+      name="publicUrl"
+      value="{f:uri.typolink(parameter: image.publicUrl, absolute: absolute)}"
+    />
+    <f:variable
+      name="defaultImage"
+      value="{f:uri.image(image: image, cropVariant: 'default', absolute: absolute)}"
+    />
+    <f:if condition="{view} == 'list'">
+      <f:then>
+        <f:variable
+                name="listViewImage"
+                value="{f:uri.image(image: image, width: '200c', height: '200c', absolute: absolute)}"
+        />
+        <f:variable
+                name="listViewImageDimensions"
+                value="{width: '200', height: '200'}"
+        />
+        <f:variable
+                name="listViewFeaturedImage"
+                value="{f:uri.image(image: image, width: '728c', height: '400c', absolute: absolute)}"
+        />
+        <f:variable
+                name="listViewFeaturedImageDimensions"
+                value="{width: '728', height: '400'}"
+        />
+        <f:variable
+                name="listViewVerticalImage"
+                value="{f:uri.image(image: image, width: '400c', height: '400c', absolute: absolute)}"
+        />
+        <f:variable
+                name="listViewVerticalImageDimensions"
+                value="{width: '400', height: '400'}"
+        />
+      </f:then>
+    </f:if>
+    <f:if condition="{view} == 'detail'">
+      <f:then>
+        <f:variable
+                name="detailViewImage"
+                value="{f:uri.image(image: image, width: '1000c', height: '400c', absolute: absolute)}"
+        />
+        <f:variable
+                name="detailViewImageDimensions"
+                value="{width: '1000', height: '400'}"
+        />
+      </f:then>
+    </f:if>
+  </f:then>
+</f:if>
+<f:spaceless>
+  <f:format.raw>
+    <f:format.json value="{
+      properties: {
+        id: image.uid,
+        type: image.type,
+        name: image.name,
+        title: image.title,
+        alternative: image.alternative,
+        description: image.description,
+        link: '{f:uri.typolink(parameter: image.link)}',
+        mimetype: image.mimetype,
+        showInPreview: image.showinpreview,
+        creationTime: '{f:if(condition: image.creationTime, then: \'{image.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
+        modificationTime: '{f:if(condition: image.modificationTime, then: \'{image.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
+      },
+      images: {
+        defaultImage: {
+          publicUrl: defaultImage,
+          dimensions: {
+            width: image.originalResource.properties.width,
+            height: image.originalResource.properties.height
+          }
+        },
+        detailViewImage: {
+          publicUrl: detailViewImage,
+          dimensions: detailViewImageDimensions
+        },
+        listViewImage: {
+          publicUrl: listViewImage,
+          dimensions: listViewImageDimensions
+        },
+        listViewFeaturedImage: {
+          publicUrl: listViewFeaturedImage,
+          dimensions: listViewFeaturedImageDimensions
+        },
+        listViewVerticalImage: {
+          publicUrl: listViewVerticalImage,
+          dimensions: listViewVerticalImageDimensions
+        }
+       }
+     }"/>
+  </f:format.raw>
+</f:spaceless>
