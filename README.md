@@ -8,7 +8,7 @@ Extension requires TYPO3 in version at least 9.5.
 
 ## Installation
 Install extension using composer\
-``composer require friendsoftypo3/headless``
+``composer require friendsoftypo3/headless_news``
 
 ## Development
 Development for this extension is happening as part of the TYPO3 PWA initiative, see https://typo3.org/community/teams/typo3-development/initiatives/pwa/
@@ -21,5 +21,3 @@ A special thanks goes to [macopedia.com](https://macopedia.com) company, which i
 
 - Łukasz Uznański (Macopedia)
 - Adam Marcinkowski (Macopedia)
-
-
