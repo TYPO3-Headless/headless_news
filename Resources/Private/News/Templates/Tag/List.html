@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+    {"list": [<f:for each="{tags}" as="tagItem" iteration="tagIterator">
+    <f:render section="TagsListView" arguments="{tagItem: tagItem}" />
+    {f:if(condition: tagIterator.isLast, else: ',')}
+</f:for>],
+    "settings":
+    <f:format.raw>
+        <f:format.json value="{
+            orderBy: settings.orderBy,
+            orderDirection: settings.orderDirection,
+            templateLayout: settings.templateLayout,
+            action: 'tagsList'
+        }"/>
+    </f:format.raw>
+    }
+</f:spaceless>
+<f:section name="TagsListView">
+    <f:spaceless>
+        <f:format.raw>
+            <f:format.json value="{
+              id: tagItem.uid,
+              pid: tagItem.pid,
+              title: tagItem.title,
+              seo: {
+                seoTitle: tag.seo_title,
+                seoDescription: tag.seo_description,
+                seoHeadline: tag.seo_headline,
+                seoText: tag.seo_text
+              },
+              slug: '{f:uri.page(pageUid: settings.listPid, additionalParams: \'{tx_news_pi1: \\\'{overwriteDemand: \\\\\\\'{tags: tagItem.slug}\\\\\\\'}\\\'}\')}'
+                }"/>
+        </f:format.raw>
+    </f:spaceless>
+</f:section>

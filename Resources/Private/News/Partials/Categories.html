@@ -1,0 +1,14 @@
+<f:spaceless>
+    [<f:for each="{categories}" as="category" iteration="categoryIterator">
+        <f:format.raw>
+            <f:format.json value="{
+              id: category.uid,
+              pid: category.pid,
+              title: category.title,
+              description: category.description
+              slug: category.slug
+            }"/>
+        </f:format.raw>
+        {f:if(condition: categoryIterator.isLast, else: ',')}
+    </f:for>]
+</f:spaceless>

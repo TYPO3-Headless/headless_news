@@ -1,0 +1,86 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{settings.hidePagination}">
+    <f:then>
+        <f:spaceless>
+            {"list": [<f:for each="{news}" as="newsItem" iteration="newsIterator">
+            <f:if condition="{settings.excludeAlreadyDisplayedNews}">
+                <f:then>
+                    <n:format.nothing>
+                        <n:excludeDisplayedNews newsItem="{newsItem}"/>
+                    </n:format.nothing>
+                </f:then>
+            </f:if>
+            <f:render section="NewsListView" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                {f:if(condition: newsIterator.isLast, else: ',')}
+            </f:for>],
+            "settings":
+            <f:format.raw>
+                <f:format.json value="{
+                    orderBy: settings.orderBy,
+                    orderDirection: settings.orderDirection,
+                    templateLayout: settings.templateLayout,
+                    action: 'list'
+                }"/>
+            </f:format.raw>
+            }
+        </f:spaceless>
+    </f:then>
+    <f:else>
+        <f:spaceless>
+            {"pagination": <n:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}" initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
+                ,"list": [<f:for each="{paginatedNews}" as="newsItem" iteration="newsIterator">
+            <f:if condition="{settings.excludeAlreadyDisplayedNews}">
+                <f:then>
+                    <n:format.nothing>
+                        <n:excludeDisplayedNews newsItem="{newsItem}"/>
+                    </n:format.nothing>
+                </f:then>
+            </f:if>
+            <f:render section="NewsListView" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                {f:if(condition: newsIterator.isLast, else: ',')}
+                </f:for>],
+                "settings":
+                <f:format.raw>
+                    <f:format.json value="{
+                        orderBy: settings.orderBy,
+                        orderDirection: settings.orderDirection,
+                        templateLayout: settings.templateLayout,
+                        action: 'list'
+                    }"/>
+                </f:format.raw>
+            </n:widget.paginate>
+            }
+        </f:spaceless>
+    </f:else>
+</f:if>
+<f:section name="NewsListView">
+    <f:spaceless>
+            <f:format.raw>
+                <f:format.json value="{
+                    uid: newsItem.uid,
+                    title: newsItem.title,
+                    teaser: newsItem.teaser,
+                    isTopNews: newsItem.istopnews,
+                    crdate: '{f:if(condition: newsItem.crdate, then: \'{newsItem.crdate -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
+                    tstamp: '{f:if(condition: newsItem.tstamp, then: \'{newsItem.tstamp -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
+                    datetime: '{f:if(condition: newsItem.datetime, then: \'{newsItem.datetime -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
+                    archive: '{f:if(condition: newsItem.archive, then: \'{newsItem.archive -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
+                    author: {
+                      author: newsItem.author,
+                      authorEmail: newsItem.authorEmail
+                    },
+                    media: '{f:render(partial: \'Files\', arguments: \'{files: newsItem.media, view: \\\'list\\\', type: \\\'media\\\'}\') -> headless:format.json.decode()}',
+                    falRelatedFiles: '{f:render(partial: \'Files\', arguments: \'{files: newsItem.falRelatedFiles, view: \\\'list\\\', type: \\\'relatedFiles\\\'}\') -> headless:format.json.decode()}',
+                    categories: '{f:render(partial: \'Categories\', arguments: \'{categories: newsItem.categories}\') -> headless:format.json.decode()}',
+                    tags: '{f:render(partial: \'Tags\', arguments: \'{tags: newsItem.tags}\') -> headless:format.json.decode()}',
+                    metaData: {
+                      keywords: newsItem.keywords,
+                      description: newsItem.description,
+                      alternativeTitle: newsItem.alternativeTitle
+                    },
+                    slug: '{n:link(newsItem: newsItem, settings: settings, uriOnly: 1)}',
+                    pathSegment: newsItem.pathSegment
+                }"/>
+            </f:format.raw>
+    </f:spaceless>
+</f:section>

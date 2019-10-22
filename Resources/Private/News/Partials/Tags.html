@@ -1,0 +1,19 @@
+<f:spaceless>
+    [<f:for each="{tags}" as="tag" iteration="tagIterator">
+        <f:format.raw>
+            <f:format.json value="{
+              id: tag.uid,
+              pid: tag.pid,
+              title: tag.title,
+              seo: {
+                seoTitle: tag.seo_title,
+                seoDescription: tag.seo_description,
+                seoHeadline: tag.seo_headline,
+                seoText: tag.seo_text
+              },
+              slug: tag.slug
+            }"/>
+        </f:format.raw>
+        {f:if(condition: tagIterator.isLast, else: ',')}
+    </f:for>]
+</f:spaceless>

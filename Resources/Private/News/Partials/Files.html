@@ -1,0 +1,49 @@
+<f:spaceless>
+    <f:format.raw>
+        [
+        <f:for each="{files}" as="file" iteration="iterator">
+            <f:if condition="{file.showinpreview} == 0 && {0: view} == {0: 'detail'} || {file.showinpreview} == 1 || {file.showinpreview} == 2 && {0: view} == {0: 'list'} || {0: type} == {0: 'relatedFiles'}">
+                {f:if(condition: imageSet, then: ',')}
+                <f:render section="File" arguments="{file: file, view: view}"/>
+                <f:variable name="imageSet" value="1"/>
+            </f:if>
+        </f:for>
+        ]
+    </f:format.raw>
+</f:spaceless>
+<f:section name="File">
+    <f:switch expression="{file.type}">
+        <f:case value="2">
+            <f:render partial="Media/Type/Image" arguments="{
+            image: file,
+            absolute: 'true',
+            view: view
+          }"/>
+        </f:case>
+        <f:case value="3">
+            <f:render partial="Media/Type/Audio" arguments="{
+            audio: file,
+            absolute: 'true',
+            view: view
+          }"/>
+        </f:case>
+        <f:case value="4">
+            <f:render partial="Media/Type/Video" arguments="{
+            video: file,
+            absolute: 'true',
+            view: view
+          }"/>
+        </f:case>
+        <f:defaultCase>
+            <f:spaceless>
+                <f:format.raw>
+                    <f:render partial="Media/Type/Image" arguments="{
+                        image: file,
+                        absolute: 'true',
+                        view: view
+                      }"/>
+                </f:format.raw>
+            </f:spaceless>
+        </f:defaultCase>
+    </f:switch>
+</f:section>

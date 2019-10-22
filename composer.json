@@ -1,0 +1,36 @@
+{
+  "name": "friendsoftypo3/headless_news",
+  "type": "typo3-cms-extension",
+  "description": "This extension provides integration with news to output content from TYPO3 in JSON format.",
+  "keywords": [
+    "TYPO3",
+    "headless",
+    "pwa",
+    "json",
+    "news"
+  ],
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "authors": [
+    {
+      "name": "Tymoteusz Motylewski",
+      "role": "Head"
+    },
+    {
+      "name": "Łukasz Uznański",
+      "role": "Developer"
+    },
+    {
+      "name": "TYPO3 PWA Initiative",
+      "role": "Developer",
+      "email": "extensions@macopedia.com"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^9.5 || ^10.0"
+  },
+  "suggest": {
+    "friendsoftypo3/headless": "^1.0"
+  }
+}
