@@ -16,7 +16,7 @@ $EM_CONF[$_EXTKEY] = [
         ],
         'conflicts' => [],
         'suggests' => [
-            'headless' => '1.0.0-1.9.9'
+            'headless' => '2.0.0-2.9.9'
         ]
     ],
 ];
