@@ -1,17 +1,18 @@
 <template>
   <div>
     <template v-if="isListPage">
-        put list component here
-        {{ data }}
+      <NewsList :data="data"/>
     </template>
     <template v-if="isSinglePage">
-      put single component here
-        {{ data}}
+      <news-single :data="data"/>
     </template>
   </div>
 </template>
 <script>
 import baseCe from '~typo3/components/content/mixins/baseCe'
+import NewsList from './Components/NewsList'
+import NewsSingle from './Components/NewsSingle'
+
 export default {
   name: 'CeNews_pi1',
   extends: baseCe,
@@ -21,6 +22,10 @@ export default {
       required: false,
       default: () => {}
     }
+  },
+  components:{
+    NewsList,
+    NewsSingle
   },
   computed: {
     isSinglePage() {
