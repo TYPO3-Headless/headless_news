@@ -1,0 +1,22 @@
+{
+  "name": "nuxt-typo3-headless-news",
+  "version": "0.0.1",
+  "description": "Vue.js components for TYPO3 headless news ext",
+  "main": "Resources/Private/News/Templates/Vue/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "Resources/Private/News/Templates/Vue/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TYPO3-Initiatives/headless_news.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TYPO3-Initiatives/headless_news/issues"
+  },
+  "homepage": "https://github.com/TYPO3-Initiatives/headless_news#readme"
+}
