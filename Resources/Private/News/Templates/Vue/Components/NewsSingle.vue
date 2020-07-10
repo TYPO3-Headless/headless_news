@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     image() {
-      if (this.data.detail.media.length !== 0) {
+      if (this.data.detail.media.length) {
         return this.data.detail.media[0].images.defaultImage.publicUrl;
       } else {
         return false;
