@@ -1,6 +1,6 @@
 {
   "name": "nuxt-typo3-headless-news",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Vue.js components for TYPO3 headless news ext",
   "main": "Resources/Private/News/Templates/Vue/index.js",
   "scripts": {
