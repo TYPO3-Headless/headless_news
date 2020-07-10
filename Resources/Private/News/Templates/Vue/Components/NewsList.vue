@@ -15,7 +15,7 @@
       <hr />
       <br />
     </div>
-    <div class="ce-newslist__pagination">
+    <div class="ce-newslist__pagination" v-if="data.pagination">
       <nuxt-link
         to="#"
         v-for="page in data.pagination.numberOfPages"
