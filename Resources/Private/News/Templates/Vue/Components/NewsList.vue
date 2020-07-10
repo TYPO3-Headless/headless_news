@@ -43,17 +43,3 @@ export default {
   }
 };
 </script>
-
-<style >
-.ce-newslist__pagination {
-  display: flex;
-}
-.ce-newslist__page {
-  width: 20px;
-  text-align: center;
-  cursor: pointer;
-}
-.ce-newslist__page--current {
-  background: #cccccc;
-}
-</style>
