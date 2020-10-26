@@ -1,18 +1,34 @@
 <f:spaceless>
+<f:if condition="{video.autoplay}">
+    <f:then>
+        <f:variable
+            name="autoplay"
+            value="true"
+        />
+    </f:then>
+    <f:else>
+        <f:variable
+            name="autoplay"
+            value="false"
+        />
+    </f:else>
+</f:if>
   <f:format.raw>
     <f:format.json
       value="{
-        id: video.uid,
-        type: video.type,
-        name: video.name,
-        title: video.title,
-        description: video.description,
-        mimetype: video.mimetype,
-        source: '{f:if(condition: \'{video.extension} == \\\'youtube\\\' || {video.extension} == \\\'vimeo\\\'\', then: video.publicUrl, else: \'{f:uri.typolink(parameter: video.publicUrl, absolute: absolute)}\')}',
-        autoplay: '{f:if(condition: video.properties.autoplay, then: \'{v:format.json.decode(json: \\\'true\\\')}\', else: \'{v:format.json.decode(json: \\\'false\\\')}\')}',
-        creationTime: '{f:if(condition: video.creationTime, then: \'{video.creationTime -> f:format.date(format: \\\'Y-m-d\TH:i:sP\\\')}\')}',
-        modificationTime: '{f:if(condition: video.modificationTime, then: \'{video.modificationTime -> f:format.date(format: \\\'Y-m-d\TH:i:sP\\\')}\')}'
-      }"
+        type: 'video',
+        properties: {
+            id: video.uid,
+            type: video.type,
+            name: video.name,
+            title: video.title,
+            description: video.description,
+            mimetype: video.mimetype,
+            source: '{f:if(condition: \'{video.extension} == \\\'youtube\\\' || {video.extension} == \\\'vimeo\\\'\', then: video.publicUrl, else: \'{f:uri.typolink(parameter: video.publicUrl, absolute: absolute)}\')}',
+            autoplay: '{autoplay -> headless:format.json.decode()}',
+            creationTime: '{f:if(condition: video.creationTime, then: \'{video.creationTime -> f:format.date(format: \\\'Y-m-d\TH:i:sP\\\')}\')}',
+            modificationTime: '{f:if(condition: video.modificationTime, then: \'{video.modificationTime -> f:format.date(format: \\\'Y-m-d\TH:i:sP\\\')}\')}'
+      }}"
     />
   </f:format.raw>
 </f:spaceless>

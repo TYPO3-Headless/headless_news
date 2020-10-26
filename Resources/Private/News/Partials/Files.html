@@ -12,7 +12,7 @@
     </f:format.raw>
 </f:spaceless>
 <f:section name="File">
-    <f:switch expression="{file.type}">
+    <f:switch expression="{file.originalResource.type}">
         <f:case value="2">
             <f:render partial="Media/Type/Image" arguments="{
             image: file,
@@ -22,14 +22,21 @@
         </f:case>
         <f:case value="3">
             <f:render partial="Media/Type/Audio" arguments="{
-            audio: file,
+            audio: file.originalResource,
             absolute: 'true',
             view: view
           }"/>
         </f:case>
         <f:case value="4">
             <f:render partial="Media/Type/Video" arguments="{
-            video: file,
+            video: file.originalResource,
+            absolute: 'true',
+            view: view
+          }"/>
+        </f:case>
+        <f:case value="5">
+            <f:render partial="Media/Type/Pdf" arguments="{
+            pdf: file.originalResource,
             absolute: 'true',
             view: view
           }"/>
