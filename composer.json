@@ -31,6 +31,6 @@
     "typo3/cms-core": "^9.5 || ^10.0"
   },
   "suggest": {
-    "friendsoftypo3/headless": "^1.0"
+    "friendsoftypo3/headless": "^2.0"
   }
 }
