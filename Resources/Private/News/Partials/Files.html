@@ -34,18 +34,11 @@
             view: view
           }"/>
         </f:case>
-        <f:case value="5">
-            <f:render partial="Media/Type/Pdf" arguments="{
-            pdf: file.originalResource,
-            absolute: 'true',
-            view: view
-          }"/>
-        </f:case>
         <f:defaultCase>
             <f:spaceless>
                 <f:format.raw>
-                    <f:render partial="Media/Type/Image" arguments="{
-                        image: file,
+                    <f:render partial="Media/Type/Application" arguments="{
+                        file: file.originalResource,
                         absolute: 'true',
                         view: view
                       }"/>
