@@ -56,16 +56,16 @@
       type: 'image',
       properties: {
         id: image.uid,
-        type: image.type,
-        name: image.name,
-        title: image.title,
-        alternative: image.alternative,
-        description: image.description,
+        type: image.originalResource.type,
+        name: image.originalResource.name,
+        title: image.originalResource.title,
+        alternative: image.originalResource.alternative,
+        description: image.originalResource.description,
         link: '{f:uri.typolink(parameter: image.link)}',
-        mimetype: image.mimetype,
+        mimetype: image.originalResource.mimetype,
         showInPreview: image.showinpreview,
-        creationTime: '{f:if(condition: image.creationTime, then: \'{image.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
-        modificationTime: '{f:if(condition: image.modificationTime, then: \'{image.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
+        creationTime: '{f:if(condition: image.originalResource.creationTime, then: \'{image.originalResource.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
+        modificationTime: '{f:if(condition: image.originalResource.modificationTime, then: \'{image.originalResource.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
       },
       images: {
         defaultImage: {
