@@ -32,5 +32,10 @@
   },
   "suggest": {
     "friendsoftypo3/headless": "^2.0"
+  },
+  "extra": {
+     "typo3/cms": {
+        "extension-key": "headless_news"
+     }
   }
 }
