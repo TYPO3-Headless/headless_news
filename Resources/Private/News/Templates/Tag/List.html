@@ -23,10 +23,10 @@
               pid: tagItem.pid,
               title: tagItem.title,
               seo: {
-                seoTitle: tag.seo_title,
-                seoDescription: tag.seo_description,
-                seoHeadline: tag.seo_headline,
-                seoText: tag.seo_text
+                seoTitle: tagItem.seoTitle,
+                seoDescription: tagItem.seoDescription,
+                seoHeadline: tagItem.seoHeadline,
+                seoText: tagItem.seoText
               },
               slug: '{f:uri.page(pageUid: settings.listPid, additionalParams: \'{tx_news_pi1: \\\'{overwriteDemand: \\\\\\\'{tags: tagItem.slug}\\\\\\\'}\\\'}\')}'
                 }"/>
