@@ -27,8 +27,8 @@
     </f:then>
     <f:else>
         <f:spaceless>
-            {"pagination": <n:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}" initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
-                ,"list": [<f:for each="{paginatedNews}" as="newsItem" iteration="newsIterator">
+            {"pagination": <f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />,
+                "list": [<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="newsIterator">
             <f:if condition="{settings.excludeAlreadyDisplayedNews}">
                 <f:then>
                     <n:format.nothing>
@@ -48,7 +48,6 @@
                         action: 'list'
                     }"/>
                 </f:format.raw>
-            </n:widget.paginate>
             }
         </f:spaceless>
     </f:else>
