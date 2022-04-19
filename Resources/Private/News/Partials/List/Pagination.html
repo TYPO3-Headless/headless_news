@@ -5,19 +5,19 @@
 
 <f:if condition="{pagination.previousPageNumber} && {pagination.previousPageNumber} >= {pagination.firstPageNumber}">
     <f:variable name="prev"
-                value="{f:uri.action(action:actionName, arguments:{currentPage: pagination.previousPageNumber}, addQueryString:1, absolute: 1)}"/>
+                value="{f:uri.action(action:actionName, arguments:{currentPage: pagination.previousPageNumber}, addQueryString:1)}"/>
 </f:if>
 
 <f:if condition="{pagination.nextPageNumber} && {pagination.nextPageNumber} <= {pagination.lastPageNumber}">
     <f:variable name="next"
-                value="{f:uri.action(action:actionName, arguments:{currentPage: pagination.nextPageNumber}, addQueryString:1, absolute: 1)}"/>
+                value="{f:uri.action(action:actionName, arguments:{currentPage: pagination.nextPageNumber}, addQueryString:1)}"/>
 </f:if>
 
 <f:spaceless>
     <f:format.raw>
         <f:format.json value="{
-            first: '{f:uri.action(action:actionName, arguments:{currentPage: 1}, addQueryString:1, absolute: 1)}',
-            last: '{f:uri.action(action:actionName, arguments:{currentPage: pagination.lastPageNumber},addQueryString:1, absolute: 1)}',
+            first: '{f:uri.action(action:actionName, arguments:{currentPage: 1}, addQueryString:1)}',
+            last: '{f:uri.action(action:actionName, arguments:{currentPage: pagination.lastPageNumber},addQueryString:1)}',
             prev: prev,
             next: next,
             pages: '{f:render(section: \'Pages\', arguments: \'{_all}\') -> headless:format.json.decode()}'
@@ -32,7 +32,7 @@
             <f:for each="{pagination.allPageNumbers}" as="page" iteration="iterator">
                 <f:format.json value="{
                 page: '{page}',
-                link: '{f:uri.action(action:actionName, arguments:{currentPage: page},addQueryString:1, absolute: 1)}',
+                link: '{f:uri.action(action:actionName, arguments:{currentPage: page},addQueryString:1}',
                 current: '{f:if(condition: \'{page} == {paginator.currentPageNumber}\', then: 1, else: 0)}'
             }"/>
                 {f:if(condition: iterator.isLast, else: ',')}
