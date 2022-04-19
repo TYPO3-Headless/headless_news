@@ -26,8 +26,8 @@
             mimetype: audio.mimetype,
             source: '{f:uri.typolink(parameter: audio.publicUrl, absolute: absolute)}',
             autoplay: '{autoplay -> headless:format.json.decode()}',
-            creationTime: '{f:if(condition: audio.creationTime, then: \'{audio.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
-            modificationTime: '{f:if(condition: audio.modificationTime, then: \'{audio.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
+            creationTime: '{f:if(condition: audio.creationTime, then: \'{audio.creationTime -> f:format.date(format: settings.dateTimeFormat)}\')}',
+            modificationTime: '{f:if(condition: audio.modificationTime, then: \'{audio.modificationTime -> f:format.date(format: settings.dateTimeFormat)}\')}'
       }}"/>
   </f:format.raw>
 </f:spaceless>

@@ -64,8 +64,8 @@
         link: '{f:uri.typolink(parameter: image.link)}',
         mimetype: image.originalResource.mimetype,
         showInPreview: image.showinpreview,
-        creationTime: '{f:if(condition: image.originalResource.creationTime, then: \'{image.originalResource.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
-        modificationTime: '{f:if(condition: image.originalResource.modificationTime, then: \'{image.originalResource.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
+        creationTime: '{f:if(condition: image.originalResource.creationTime, then: \'{image.originalResource.creationTime -> f:format.date(format: settings.dateTimeFormat)}\')}',
+        modificationTime: '{f:if(condition: image.originalResource.modificationTime, then: \'{image.originalResource.modificationTime -> f:format.date(format: settings.dateTimeFormat)}\')}'
       },
       images: {
         defaultImage: {

@@ -11,8 +11,8 @@
             description: file.description,
             mimetype: file.mimetype,
             publicUrl: '{f:uri.typolink(parameter: file.publicUrl, absolute: absolute)}',
-            creationTime: '{f:if(condition: file.creationTime, then: \'{file.creationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
-            modificationTime: '{f:if(condition: file.modificationTime, then: \'{file.modificationTime -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}'
+            creationTime: '{f:if(condition: file.creationTime, then: \'{file.creationTime -> f:format.date(format: settings.dateTimeFormat)}\')}',
+            modificationTime: '{f:if(condition: file.modificationTime, then: \'{file.modificationTime -> f:format.date(format: settings.dateTimeFormat)}\')}'
         }
       }"/>
   </f:format.raw>
