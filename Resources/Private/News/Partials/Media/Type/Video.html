@@ -26,8 +26,8 @@
             mimetype: video.mimetype,
             source: '{f:if(condition: \'{video.extension} == \\\'youtube\\\' || {video.extension} == \\\'vimeo\\\'\', then: video.publicUrl, else: \'{f:uri.typolink(parameter: video.publicUrl, absolute: absolute)}\')}',
             autoplay: '{autoplay -> headless:format.json.decode()}',
-            creationTime: '{f:if(condition: video.creationTime, then: \'{video.creationTime -> f:format.date(format: \\\'Y-m-d\TH:i:sP\\\')}\')}',
-            modificationTime: '{f:if(condition: video.modificationTime, then: \'{video.modificationTime -> f:format.date(format: \\\'Y-m-d\TH:i:sP\\\')}\')}'
+            creationTime: '{f:if(condition: video.creationTime, then: \'{video.creationTime -> f:format.date(format: settings.dateTimeFormat')}\')}',
+            modificationTime: '{f:if(condition: video.modificationTime, then: \'{video.modificationTime -> f:format.date(format: \settings.dateTimeFormat)}\')}'
       }}"
     />
   </f:format.raw>

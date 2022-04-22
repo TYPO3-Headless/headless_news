@@ -1,27 +1,31 @@
 tt_content.list =< lib.contentElementWithHeader
 tt_content.list {
-    fields {
-        content {
-            fields {
-                data = CASE
-                data {
-                    key.field = list_type
+  fields {
+    content {
+      fields {
+        data = CASE
+        data {
+          key.field = list_type
 
-                    news_pi1 = USER
-                    news_pi1 {
-                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-                        vendorName = GeorgRinger
-                        extensionName = News
-                        pluginName = Pi1
-                        controller = News
-
-                        view < plugin.tx_news.view
-                        persistence < plugin.tx_news.persistence
-                        settings < plugin.tx_news.settings
-                    }
-                }
+          news_pi1 = USER
+          news_pi1 {
+            userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+            vendorName = GeorgRinger
+            extensionName = News
+            pluginName = Pi1
+            controller = News
+            view < plugin.tx_news.view
+            persistence < plugin.tx_news.persistence
+            settings < plugin.tx_news.settings
+            settings {
+              dateFormat = TEXT
+              dateFormat = M d Y
+              dateTimeFormat = TEXT
+              dateTimeFormat = Y-m-d H:i:s
             }
-
+          }
         }
+      }
     }
+  }
 }

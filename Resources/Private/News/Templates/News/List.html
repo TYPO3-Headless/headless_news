@@ -1,4 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <f:if condition="{settings.hidePagination}">
     <f:then>
         <f:spaceless>
@@ -60,10 +61,10 @@
                     title: newsItem.title,
                     teaser: newsItem.teaser,
                     isTopNews: newsItem.istopnews,
-                    crdate: '{f:if(condition: newsItem.crdate, then: \'{newsItem.crdate -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
-                    tstamp: '{f:if(condition: newsItem.tstamp, then: \'{newsItem.tstamp -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
-                    datetime: '{f:if(condition: newsItem.datetime, then: \'{newsItem.datetime -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
-                    archive: '{f:if(condition: newsItem.archive, then: \'{newsItem.archive -> f:format.date(format: \\\'Y-m-d\ H:i:s\\\')}\')}',
+                    crdate: '{f:if(condition: newsItem.crdate, then: \'{newsItem.crdate -> f:format.date(format: settings.dateFormat)}\')}',
+                    tstamp: '{f:if(condition: newsItem.tstamp, then: \'{newsItem.tstamp -> f:format.date(format: settings.dateFormat)}\')}',
+                    datetime: '{f:if(condition: newsItem.datetime, then: \'{newsItem.datetime -> f:format.date(format: settings.dateFormat)}\')}',
+                    archive: '{f:if(condition: newsItem.archive, then: \'{newsItem.archive -> f:format.date(format: settings.dateTimeFormat)}\')}',
                     author: {
                       author: newsItem.author,
                       authorEmail: newsItem.authorEmail
@@ -78,7 +79,8 @@
                       alternativeTitle: newsItem.alternativeTitle
                     },
                     slug: '{n:link(newsItem: newsItem, settings: settings, uriOnly: 1)}',
-                    pathSegment: newsItem.pathSegment
+                    pathSegment: newsItem.pathSegment,
+                    moreLink: '{f:translate(key: \'more-link\', extensionName: \'news\')}'
                 }"/>
             </f:format.raw>
     </f:spaceless>

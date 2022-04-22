@@ -15,10 +15,10 @@
                     teaser: newsItem.teaser,
                     isTopNews: newsItem.istopnews,
                     bodytext: '{newsItem.bodytext -> f:format.html(parseFuncTSPath: \'lib.parseFunc_links\')}',
-                    crdate: '{f:if(condition: newsItem.crdate, then: \'{newsItem.crdate -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
-                    tstamp: '{f:if(condition: newsItem.tstamp, then: \'{newsItem.tstamp -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
-                    datetime: '{f:if(condition: newsItem.datetime, then: \'{newsItem.datetime -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
-                    archive: '{f:if(condition: newsItem.archive, then: \'{newsItem.archive -> f:format.date(format: \\\'M\ d\ Y\\\')}\')}',
+                    crdate: '{f:if(condition: newsItem.crdate, then: \'{newsItem.crdate -> f:format.date(format: settings.dateFormat)}\')}',
+                    tstamp: '{f:if(condition: newsItem.tstamp, then: \'{newsItem.tstamp -> f:format.date(format: settings.dateFormat)}\')}',
+                    datetime: '{f:if(condition: newsItem.datetime, then: \'{newsItem.datetime -> f:format.date(format: settings.dateFormat)}\')}',
+                    archive: '{f:if(condition: newsItem.archive, then: \'{newsItem.archive -> f:format.date(format: settings.dateFormat)}\')}',
                     author: {
                       author: newsItem.author,
                       authorEmail: newsItem.authorEmail
@@ -33,7 +33,8 @@
                       alternativeTitle: newsItem.alternativeTitle
                     },
                     pathSegment: newsItem.pathSegment,
-                    canonical: '{f:uri.page(pageUid: newsItem.canonical, additionalParams: \'{tx_news_pi1: \\\'{news: newsItem.uid, action: \\\\\\\'detail\\\\\\\', controller: \\\\\\\'News\\\\\\\'}\\\'}\')}'
+                    canonical: '{f:uri.page(pageUid: newsItem.canonical, additionalParams: \'{tx_news_pi1: \\\'{news: newsItem.uid, action: \\\\\\\'detail\\\\\\\', controller: \\\\\\\'News\\\\\\\'}\\\'}\')}',
+                    backLink: '{f:translate(key: \'back-link\', extensionName: \'news\')}'
                 },
                 settings: {
                   templateLayout: settings.templateLayout,
