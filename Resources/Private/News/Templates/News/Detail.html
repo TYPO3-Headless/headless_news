@@ -33,7 +33,8 @@
                       alternativeTitle: newsItem.alternativeTitle
                     },
                     pathSegment: newsItem.pathSegment,
-                    canonical: '{f:uri.page(pageUid: newsItem.canonical, additionalParams: \'{tx_news_pi1: \\\'{news: newsItem.uid, action: \\\\\\\'detail\\\\\\\', controller: \\\\\\\'News\\\\\\\'}\\\'}\')}'
+                    canonical: '{f:uri.page(pageUid: newsItem.canonical, additionalParams: \'{tx_news_pi1: \\\'{news: newsItem.uid, action: \\\\\\\'detail\\\\\\\', controller: \\\\\\\'News\\\\\\\'}\\\'}\')}',
+                    backLink: '{f:translate(key: \'back-link\', extensionName: \'news\')}'
                 },
                 settings: {
                   templateLayout: settings.templateLayout,

@@ -79,7 +79,8 @@
                       alternativeTitle: newsItem.alternativeTitle
                     },
                     slug: '{n:link(newsItem: newsItem, settings: settings, uriOnly: 1)}',
-                    pathSegment: newsItem.pathSegment
+                    pathSegment: newsItem.pathSegment,
+                    moreLink: '{f:translate(key: \'more-link\', extensionName: \'news\')}'
                 }"/>
             </f:format.raw>
     </f:spaceless>
