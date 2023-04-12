@@ -29,3 +29,30 @@ tt_content.list {
     }
   }
 }
+
+
+// Since there is new content element ext:news 11
+tt_content.news_pi1 =< lib.contentElementWithHeader
+tt_content.news_pi1 {
+    fields {
+        content {
+            fields {
+                data = USER
+                data {
+                    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                    vendorName = GeorgRinger
+                    extensionName = News
+                    pluginName = Pi1
+                    controller = News
+                    view < plugin.tx_news.view
+                    persistence < plugin.tx_news.persistence
+                    settings < plugin.tx_news.settings
+                    settings {
+                      dateFormat = M d Y
+                      dateTimeFormat = Y-m-d H:i:s
+                    }
+                }
+            }
+        }
+    }
+}
