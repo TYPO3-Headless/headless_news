@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import baseCe from "~typo3/mixins/component/baseCe";
+import baseCe from "~typo3/components/content/mixins/baseCe";
 import NewsList from "./Components/NewsList";
 import NewsSingle from "./Components/NewsSingle";
 

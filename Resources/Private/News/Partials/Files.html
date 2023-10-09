@@ -2,7 +2,7 @@
     <f:format.raw>
         [
         <f:for each="{files}" as="file" iteration="iterator">
-            <f:if condition="{file.showinpreview} == 0 && {0: view} == {0: 'detail'} || {file.showinpreview} == 1 || {file.showinpreview} == 2 && {0: view} == {0: 'list'} || {0: type} == {0: 'relatedFiles'}">
+            <f:if condition="{file.showinpreview} == 0 && {0: view} == {0: 'detail'} || {file.showinpreview} == 1 || {file.showinpreview} == 2 && {0: view} == {0: 'list'} || {0: type} == {0: 'relatedFiles'} || {0: type} == {0: 'media'}">
                 {f:if(condition: imageSet, then: ',')}
                 <f:render section="File" arguments="{file: file, view: view}"/>
                 <f:variable name="imageSet" value="1"/>

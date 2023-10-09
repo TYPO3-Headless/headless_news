@@ -28,11 +28,11 @@
     }
   ],
   "require": {
-    "typo3/cms-core": "^10.0 || ^11.5"
+    "typo3/cms-core": "^10.0 || ^12.0"
   },
   "suggest": {
-  	"friendsoftypo3/headless": "^2.0 || ^3.0",
-    "georgringer/news": "^9.0"
+  	"friendsoftypo3/headless": "^2.0 || ^4.0",
+    "georgringer/news": "^9.0 || ^11.0"
   },
   "extra": {
      "typo3/cms": {

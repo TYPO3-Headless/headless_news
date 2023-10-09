@@ -20,7 +20,8 @@
                     orderBy: settings.orderBy,
                     orderDirection: settings.orderDirection,
                     templateLayout: settings.templateLayout,
-                    action: 'list'
+                    action: 'list',
+                    cropMaxCharacters: settings.cropMaxCharacters
                 }"/>
             </f:format.raw>
             }
@@ -46,7 +47,8 @@
                         orderBy: settings.orderBy,
                         orderDirection: settings.orderDirection,
                         templateLayout: settings.templateLayout,
-                        action: 'list'
+                        action: 'list',
+                        cropMaxCharacters: settings.cropMaxCharacters
                     }"/>
                 </f:format.raw>
             }
@@ -69,7 +71,7 @@
                       author: newsItem.author,
                       authorEmail: newsItem.authorEmail
                     },
-                    media: '{f:render(partial: \'Files\', arguments: \'{files: newsItem.media, view: \\\'list\\\', type: \\\'media\\\'}\') -> headless:format.json.decode()}',
+                    media: '{f:render(partial: \'Files\', arguments: \'{files: newsItem.falMedia, view: \\\'list\\\', type: \\\'media\\\'}\') -> headless:format.json.decode()}',
                     falRelatedFiles: '{f:render(partial: \'Files\', arguments: \'{files: newsItem.falRelatedFiles, view: \\\'list\\\', type: \\\'relatedFiles\\\'}\') -> headless:format.json.decode()}',
                     categories: '{f:render(partial: \'Categories\', arguments: \'{categories: newsItem.categories}\') -> headless:format.json.decode()}',
                     tags: '{f:render(partial: \'Tags\', arguments: \'{tags: newsItem.tags}\') -> headless:format.json.decode()}',

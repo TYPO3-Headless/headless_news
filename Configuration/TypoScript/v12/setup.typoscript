@@ -1,0 +1,100 @@
+tt_content.news_pi1 =< lib.contentElementWithHeader
+tt_content.news_pi1 {
+  fields {
+    content {
+      fields {
+        data = USER
+        data {
+          userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+          vendorName = GeorgRinger
+          extensionName = News
+          pluginName = Pi1
+          controller = News
+          view < plugin.tx_news.view
+          persistence < plugin.tx_news.persistence
+          settings < plugin.tx_news.settings
+          settings {
+            dateFormat = TEXT
+            dateFormat = M d Y
+            dateTimeFormat = TEXT
+            dateTimeFormat = Y-m-d H:i:s
+          }
+        }
+      }
+    }
+  }
+}
+
+tt_content.news_newsliststicky < tt_content.news_pi1
+tt_content.news_newsliststicky {
+  fields {
+    content {
+      fields {
+        data = USER
+        data {
+          pluginName = NewsListSticky
+        }
+      }
+    }
+  }
+}
+
+tt_content.news_newsdatemenu < tt_content.news_pi1
+
+tt_content.news_newssearchresult < tt_content.news_pi1
+tt_content.news_newssearchresult {
+  fields {
+    content {
+      fields {
+        data = USER
+        data {
+          pluginName = NewsSearchForm
+        }
+      }
+    }
+  }
+}
+
+tt_content.news_categorylist < tt_content.news_pi1
+tt_content.news_categorylist {
+  fields {
+    content {
+      fields {
+        data = USER
+        data {
+          pluginName = CategoryList
+          controller = Category
+        }
+      }
+    }
+  }
+}
+
+tt_content.news_taglist < tt_content.news_pi1
+tt_content.news_taglist {
+  fields {
+    content {
+      fields {
+        data = USER
+        data {
+          pluginName = TagList
+          controller = Tag
+        }
+      }
+    }
+  }
+}
+
+tt_content.news_newsdetail < tt_content.news_pi1
+tt_content.news_newsdetail {
+  fields {
+    content {
+      fields {
+        data = USER
+        data {
+          pluginName = NewsDetail
+        }
+      }
+    }
+  }
+}
