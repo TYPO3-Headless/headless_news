@@ -1,31 +1,97 @@
-tt_content.list =< lib.contentElementWithHeader
-tt_content.list {
-  fields {
-    content {
-      fields {
-        data = CASE
-        data {
-          key.field = list_type
-
-          news_pi1 = USER
-          news_pi1 {
-            userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-            vendorName = GeorgRinger
-            extensionName = News
-            pluginName = Pi1
-            controller = News
-            view < plugin.tx_news.view
-            persistence < plugin.tx_news.persistence
-            settings < plugin.tx_news.settings
-            settings {
-              dateFormat = TEXT
-              dateFormat = M d Y
-              dateTimeFormat = TEXT
-              dateTimeFormat = Y-m-d H:i:s
+tt_content {
+    news_pi1 =< lib.contentElementWithHeader
+    news_pi1 {
+        fields {
+            content {
+                fields {
+                    data = USER
+                    data {
+                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                        vendorName = GeorgRinger
+                        extensionName = News
+                        pluginName = Pi1
+                        controller = News
+                        view =< plugin.tx_news.view
+                        persistence =< plugin.tx_news.persistence
+                        settings =< plugin.tx_news.settings
+                        settings {
+                            dateFormat = TEXT
+                            dateFormat = M d Y
+                            dateTimeFormat = TEXT
+                            dateTimeFormat = Y-m-d H:i:s
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
+
+    news_newsliststicky < tt_content.news_pi1
+    news_newsliststicky {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsListSticky
+                    }
+                }
+            }
+        }
+    }
+
+    news_newsdatemenu < tt_content.news_pi1
+
+    news_newssearchresult < tt_content.news_pi1
+    news_newssearchresult {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsSearchForm
+                    }
+                }
+            }
+        }
+    }
+
+    news_categorylist < tt_content.news_pi1
+    news_categorylist {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = CategoryList
+                        controller = Category
+                    }
+                }
+            }
+        }
+    }
+
+    news_taglist < tt_content.news_pi1
+    news_taglist {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = TagList
+                        controller = Tag
+                    }
+                }
+            }
+        }
+    }
+
+    news_newsdetail < tt_content.news_pi1
+    news_newsdetail {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsDetail
+                    }
+                }
+            }
+        }
+    }
 }
