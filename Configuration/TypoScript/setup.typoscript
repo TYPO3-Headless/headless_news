@@ -26,6 +26,19 @@ tt_content {
         }
     }
 
+    news_newsdetail < tt_content.news_pi1
+    news_newsdetail {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsDetail
+                    }
+                }
+            }
+        }
+    }
+
     news_newsliststicky < tt_content.news_pi1
     news_newsliststicky {
         fields {
@@ -33,6 +46,19 @@ tt_content {
                 fields {
                     data {
                         pluginName = NewsListSticky
+                    }
+                }
+            }
+        }
+    }
+
+    news_newsselectedlist < tt_content.news_pi1
+    news_newsselectedlist {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsSelectedList
                     }
                 }
             }
@@ -76,19 +102,6 @@ tt_content {
                     data {
                         pluginName = TagList
                         controller = Tag
-                    }
-                }
-            }
-        }
-    }
-
-    news_newsdetail < tt_content.news_pi1
-    news_newsdetail {
-        fields {
-            content {
-                fields {
-                    data {
-                        pluginName = NewsDetail
                     }
                 }
             }
