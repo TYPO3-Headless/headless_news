@@ -3,11 +3,17 @@ This extension provides integration to headless extension with news extension.
 
 If you have any questions just drop a line in #initiative-pwa Slack channel.
 
-## Requirements
-Extension requires TYPO3 in version at least 9.5.
+## Requirements and compatibility
+
+| Extension version  	       | TYPO3 version support | EXT:news version support | Status 	                              |
+|----------------------------|-----------------------|--------------------------|---------------------------------------|
+| `3.0-dev` (upcoming)  	 | `11`, `12` 	          | `>= 11`  	               | Supported	                            |
+| `2.0`                      | `10`, `11`	             | `<= 10`	                 | Deprecated, no longer supported       |
+| `1.0` 	                    | `9`, `10`	            | `< 10`	                  | Deprecated, no longer supported |
 
 ## TYPO3 Installation
-Install extension using composer\
+Install extension using composer
+
 ``composer require friendsoftypo3/headless_news``
 
 and then, include Typoscript template, and you are ready to go.
