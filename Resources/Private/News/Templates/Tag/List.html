@@ -28,7 +28,7 @@
                 seoHeadline: tagItem.seoHeadline,
                 seoText: tagItem.seoText
               },
-              slug: '{f:uri.page(pageUid: settings.listPid, additionalParams: \'{tx_news_pi1: \\\'{overwriteDemand: \\\\\\\'{tags: tagItem.slug}\\\\\\\'}\\\'}\')}'
+              slug: '{f:uri.page(pageUid: settings.listPid, additionalParams: \'{tx_news_pi1: \\\'{overwriteDemand: \\\\\\\'{tags: tagItem.uid}\\\\\\\'}\\\'}\')}'
                 }"/>
         </f:format.raw>
     </f:spaceless>
