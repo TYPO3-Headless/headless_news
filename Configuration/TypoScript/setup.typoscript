@@ -66,9 +66,33 @@ tt_content {
     }
 
     news_newsdatemenu < tt_content.news_pi1
+    news_newsdatemenu {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsDateMenu
+                    }
+                }
+            }
+        }
+    }
 
     news_newssearchresult < tt_content.news_pi1
     news_newssearchresult {
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsSearchResult
+                    }
+                }
+            }
+        }
+    }
+
+    news_newssearchform < tt_content.news_pi1
+    news_newssearchform {
         fields {
             content {
                 fields {
