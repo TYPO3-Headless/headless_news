@@ -1,0 +1,5 @@
+name: friendsoftypo3/headless-news
+label: TYPO3 Headless News
+dependencies:
+  - friendsoftypo3/headless
+  - georgringer/news

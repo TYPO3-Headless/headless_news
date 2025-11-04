@@ -1,4 +1,3 @@
-@import 'EXT:headless_news/Configuration/Sets/HeadlessNews/setup.typoscript'
 tt_content {
     news_pi1 =< lib.contentElementWithHeader
     news_pi1 {
@@ -67,33 +66,9 @@ tt_content {
     }
 
     news_newsdatemenu < tt_content.news_pi1
-    news_newsdatemenu {
-        fields {
-            content {
-                fields {
-                    data {
-                        pluginName = NewsDateMenu
-                    }
-                }
-            }
-        }
-    }
 
     news_newssearchresult < tt_content.news_pi1
     news_newssearchresult {
-        fields {
-            content {
-                fields {
-                    data {
-                        pluginName = NewsSearchResult
-                    }
-                }
-            }
-        }
-    }
-
-    news_newssearchform < tt_content.news_pi1
-    news_newssearchform {
         fields {
             content {
                 fields {
