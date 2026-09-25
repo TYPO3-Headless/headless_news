@@ -7,7 +7,7 @@ If you have any questions just drop a line in #initiative-pwa Slack channel.
 
 | Extension version  	 | TYPO3 version support | EXT:news version support | Status 	                              |
 |----------------------|-----------------------|--------------------------|---------------------------------------|
-| `4.0-dev` (upcoming)  	 | `12`, `13` 	          | `>= 12`  	               | Supported	                            |
+| `4.0-dev` (upcoming)  	 | `12`, `13`, `14`      | `>= 12`  	               | Supported	                            |
 | `3.0-dev`	 | `11`, `12` 	          | `>= 11 < 13`  	          | Deprecated, no longer supported	                            |
 | `2.0`                | `10`, `11`	           | `<= 10`	                 | Deprecated, no longer supported       |
 | `1.0` 	              | `9`, `10`	            | `< 10`	                  | Deprecated, no longer supported |

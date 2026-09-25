@@ -1,6 +1,4 @@
-plugin:
-  tx_news:
-    view:
-      layoutRootPath: 'EXT:headless_news/Resources/Private/Layouts/'
-      partialRootPath: 'EXT:headless_news/Resources/Private/Partials/'
-      templateRootPath: 'EXT:headless_news/Resources/Private/Templates/'
+news:
+  view:
+    templateRootPath: 'EXT:headless_news/Resources/Private/News/Templates/'
+    partialRootPath: 'EXT:headless_news/Resources/Private/News/Partials/'
