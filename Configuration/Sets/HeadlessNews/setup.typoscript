@@ -1,4 +1,5 @@
 tt_content {
+    news_pi1 >
     news_pi1 =< lib.contentElementWithHeader
     news_pi1 {
         fields {
@@ -26,8 +27,10 @@ tt_content {
         }
     }
 
-    news_newsdetail < tt_content.news_pi1
+    news_newsdetail >
+    news_newsdetail =< lib.contentElementWithHeader
     news_newsdetail {
+        fields < tt_content.news_pi1.fields
         fields {
             content {
                 fields {
@@ -39,8 +42,10 @@ tt_content {
         }
     }
 
-    news_newsliststicky < tt_content.news_pi1
+    news_newsliststicky >
+    news_newsliststicky =< lib.contentElementWithHeader
     news_newsliststicky {
+        fields < tt_content.news_pi1.fields
         fields {
             content {
                 fields {
@@ -52,8 +57,10 @@ tt_content {
         }
     }
 
-    news_newsselectedlist < tt_content.news_pi1
+    news_newsselectedlist >
+    news_newsselectedlist =< lib.contentElementWithHeader
     news_newsselectedlist {
+        fields < tt_content.news_pi1.fields
         fields {
             content {
                 fields {
@@ -65,10 +72,25 @@ tt_content {
         }
     }
 
-    news_newsdatemenu < tt_content.news_pi1
+    news_newsdatemenu >
+    news_newsdatemenu =< lib.contentElementWithHeader
+    news_newsdatemenu {
+        fields < tt_content.news_pi1.fields
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsDateMenu
+                    }
+                }
+            }
+        }
+    }
 
-    news_newssearchresult < tt_content.news_pi1
-    news_newssearchresult {
+    news_newssearchform >
+    news_newssearchform =< lib.contentElementWithHeader
+    news_newssearchform {
+        fields < tt_content.news_pi1.fields
         fields {
             content {
                 fields {
@@ -80,8 +102,25 @@ tt_content {
         }
     }
 
-    news_categorylist < tt_content.news_pi1
+    news_newssearchresult >
+    news_newssearchresult =< lib.contentElementWithHeader
+    news_newssearchresult {
+        fields < tt_content.news_pi1.fields
+        fields {
+            content {
+                fields {
+                    data {
+                        pluginName = NewsSearchResult
+                    }
+                }
+            }
+        }
+    }
+
+    news_categorylist >
+    news_categorylist =< lib.contentElementWithHeader
     news_categorylist {
+        fields < tt_content.news_pi1.fields
         fields {
             content {
                 fields {
@@ -94,8 +133,10 @@ tt_content {
         }
     }
 
-    news_taglist < tt_content.news_pi1
+    news_taglist >
+    news_taglist =< lib.contentElementWithHeader
     news_taglist {
+        fields < tt_content.news_pi1.fields
         fields {
             content {
                 fields {
